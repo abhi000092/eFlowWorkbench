@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="eCRM TEST SUITE">
+
+	<test name="Regression Tests on sql" verbose="1">
+
+		<parameter name="browserName" value="Chrome" />
+		<parameter name="browserVersion" value="77.0.3865.40" />
+		<parameter name="environmentName" value="PreProduction" />
+			<parameter name="database" value="progress" />
+		<parameter name="performanceFlag" value="true" />
+		<parameter name="reTryFlag" value="false" />
+		<parameter name="userName" value="eauto" />
+		<parameter name="password" value="e" />
+		<groups>
+			<run>
+				<include name="test" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.eCRM.client.*" />
+		</packages>
+
+
+	</test>
+	
+	<test name="Regression Tests on progress" verbose="1">
+
+		<parameter name="browserName" value="Chrome" />
+		<parameter name="browserVersion" value="77.0.3865.40" />
+		<parameter name="environmentName" value="PreProduction" />
+			<parameter name="database" value="sql" />
+		<parameter name="performanceFlag" value="true" />
+		<parameter name="reTryFlag" value="false" />
+		<parameter name="userName" value="demo" />
+		<parameter name="password" value="e" />
+		<groups>
+			<run>
+				<include name="test" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.eCRM.client.*" />
+		</packages>
+
+
+	</test>
+
+	<listeners>
+		<listener class-name="com.eCRM.client.core.RetryAnalyzer" />
+	</listeners>
+
+</suite>
+

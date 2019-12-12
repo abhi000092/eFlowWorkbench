@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [eCRM TEST SUITE]">
+  <parameter name="password" value="e"/>
+  <parameter name="environmentName" value="PreProduction"/>
+  <parameter name="browserVersion" value="77.0.3865.40"/>
+  <parameter name="browserName" value="Chrome"/>
+  <parameter name="reTryFlag" value="false"/>
+  <parameter name="performanceFlag" value="false"/>
+  <parameter name="userName" value="eauto"/>
+  <listeners>
+    <listener class-name="com.eCRM.client.core.RetryAnalyzer"/>
+  </listeners>
+  <test name="Regression Tests(failed)">
+    <parameter name="password" value="e"/>
+    <parameter name="environmentName" value="PreProduction"/>
+    <parameter name="browserVersion" value="77.0.3865.40"/>
+    <parameter name="browserName" value="Chrome"/>
+    <parameter name="reTryFlag" value="false"/>
+    <parameter name="performanceFlag" value="false"/>
+    <parameter name="userName" value="eauto"/>
+    <groups>
+      <run>
+        <include name="test"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.eCRM.client.tests.eCRM12_CampaignProjectsTests">
+        <methods>
+          <include name="verifyCampaignIsAddedToCampaignProjectTest"/>
+          <include name="initClass"/>
+        </methods>
+      </class> <!-- com.eCRM.client.tests.eCRM12_CampaignProjectsTests -->
+      <class name="com.eCRM.client.tests.eCRM01_LoginTests">
+        <methods>
+          <include name="initClass"/>
+        </methods>
+      </class> <!-- com.eCRM.client.tests.eCRM01_LoginTests -->
+      <class name="com.eCRM.client.tests.eCRM11_TemplateMaintenanceTests">
+        <methods>
+          <include name="initClass"/>
+        </methods>
+      </class> <!-- com.eCRM.client.tests.eCRM11_TemplateMaintenanceTests -->
+      <class name="com.eCRM.client.tests.eCRM13_CampaignApprovalTests">
+        <methods>
+          <include name="approveTheCampaignProjectTest"/>
+          <include name="initClass"/>
+          <include name="verifyCampaignProjectApprovedTest"/>
+          <include name="deleteCampaignProjectTest"/>
+          <include name="verifyCampaignProjectAddedToApprovalPageTest"/>
+          <include name="verifyProjectIsCompletedTest"/>
+          <include name="verifyCampaignProjectIsDeletedTest"/>
+        </methods>
+      </class> <!-- com.eCRM.client.tests.eCRM13_CampaignApprovalTests -->
+      <class name="com.eCRM.client.tests.eCRM14_TranslationTests">
+        <methods>
+          <include name="editTheStringValueTest"/>
+          <include name="verifySearchedStringIsVisibleTest"/>
+          <include name="editStringIsSearchedAndVisibleTest"/>
+          <include name="verifyTheEditedStringValueTest"/>
+          <include name="initClass"/>
+          <include name="verifyEditedStringIsSearchedAndVisibleTest"/>
+        </methods>
+      </class> <!-- com.eCRM.client.tests.eCRM14_TranslationTests -->
+      <class name="com.eCRM.client.tests.eCRM09_ComplaintManagementTests">
+        <methods>
+          <include name="completeTheComplaintTest"/>
+          <include name="verifyTheComplaintCompletedStatusTest"/>
+          <include name="verifyTheJournalIsEditedTest"/>
+          <include name="verifyTheDeletedComplaintTest"/>
+          <include name="verifyTheJournalIsAddedToComplaintTest"/>
+          <include name="verifyTheAttachmentIsAddedTest"/>
+          <include name="editTheAddedJournalToComplaintTest"/>
+          <include name="deleteJournalFromTHeComplaintTest"/>
+          <include name="addAttachmentTOCOmplaintTest"/>
+          <include name="initClass"/>
+        </methods>
+      </class> <!-- com.eCRM.client.tests.eCRM09_ComplaintManagementTests -->
+      <class name="com.eCRM.client.core.DriverFactory">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.eCRM.client.core.DriverFactory -->
+      <class name="com.eCRM.client.tests.eCRM10_CampaignTests">
+        <methods>
+          <include name="initClass"/>
+        </methods>
+      </class> <!-- com.eCRM.client.tests.eCRM10_CampaignTests -->
+    </classes>
+  </test> <!-- Regression Tests(failed) -->
+</suite> <!-- Failed suite [eCRM TEST SUITE] -->

@@ -1,0 +1,944 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>eFlowClient</name>
+    </assembly>
+    <members>
+        <member name="T:com.efi.eflow.netclient.api.eFlowClientInfo">
+            <summary>
+            Information about the eFlowClient itself.
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.api.eFlowClientInfo.Version">
+            <summary>
+            The build version of this eFlowClient library. (Note: NOT the version of eFlow you are connected to or are trying to connect to)
+            </summary>
+        </member>
+        <member name="T:com.efi.eflow.netclient.api.eFlowMessageConsumer">
+            <summary>
+            Implement this interface if you wish to get messages in asynchronous way
+            Whenever a message exists that you are subscribed to, onMessage method will be called.
+            </summary>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowMessageConsumer.onMessage(com.efi.eflow.netclient.data.eFlowMessage)">
+            <summary>
+            This method is called by API when a message exists
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowMessageConsumer.onError(com.efi.eflow.netclient.exception.eFlowException)">
+            <summary>
+            This method is called by API In case of any exception
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:com.efi.eflow.netclient.api.eFlowServiceProvider">
+            <summary>
+            Implement this interface to implement a service provider for synchronization 
+            call from any client
+            </summary>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowServiceProvider.service(System.String)">
+            <summary>
+            This method is called When anyone asks for this service
+            </summary>
+            <param name="payload">Payload from the client</param>
+            <returns>response to the service request</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowServiceProvider.service(com.efi.eflow.netclient.data.eFlowMessage)">
+            <summary>
+            This method is called When anyone asks for this service
+            </summary>
+            <param name="payload">eFlowMessage Payload from the client</param>
+            <returns>response to the service request</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowServiceProvider.onError(com.efi.eflow.netclient.exception.eFlowException)">
+            <summary>
+            This method is called When there is any error
+            </summary>
+            <param name="ex">Exception associated with this error</param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowServiceProvider.onClose">
+            <summary>
+            This method is called When session is closed
+            </summary>
+        </member>
+        <member name="T:com.efi.eflow.netclient.api.eFlowClient">
+            <summary>
+            This class should be used to interact with eFlow instances
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.api.eFlowClient.SUCCESS">
+            <summary>
+            Indicates successful completion of the operation
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.api.eFlowClient.NOEFLOWFOUND">
+            <summary>
+            Eflow instance that you are looking for is not found. It may not be running currently
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.api.eFlowClient.FAILED_TO_SEND">
+            <summary>
+            Failed to send the message. Please refer to the details for additional info
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.api.eFlowClient.FAILED_TO_SUBSCRIBE">
+            <summary>
+            Failed to subscribe. Most common reason is, client with that id is already subscribed
+            Can happen if client is not gracefully shutdown
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.api.eFlowClient.FAILED_TO_RECEIVE">
+            <summary>
+            Exception occurred while receiving the message
+            When this error is raised, client should try to reconnect
+            </summary>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.NewGuid">
+            <summary>
+            Generate Guid that is needed for publishing any message.
+            </summary>
+            <returns>a new guid</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.GetBODID">
+            <summary>
+            Generates unique identifier for identifying this specific message and for 
+            corresponding responses. It will be moved to correlation id
+            in responses
+            </summary>
+            <returns>Unique ID</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.enableNotifications(com.efi.eflow.netclient.api.eFlowNotificationListener)">
+            <summary>
+            Sets notification listener for eFlow Client. 
+            All instances using this eFlow client will use this notification class
+            to send notifications
+            </summary>
+            <param name="listener">Class that implements eFlowNotificationListener</param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.FindEFlowByName(System.String)">
+            <summary>
+            If you know the instance name of the eFlow, use this method to get eFlowAddress object
+            This method will take few seconds to return. It will query all available eFlow instances 
+            and returns the address of right instance matching the name
+            While it is illeagal to have 2 instances with same name, if it exists, it will return the address
+            of one of the instance.
+            </summary>
+            <param name="name">Name of the eFlow instance</param>
+            <returns>eFlowAddress of the instance matching the name</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.DiscovereFlow">
+            <summary>
+            It will search the network for eFlow instances and returns address of all actively running 
+            eFlow instances. This method is a blocking call and may take upto a minute to return.
+            </summary>
+            <returns>List of eFlowAddress objects</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.FindEFlowByIp(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            If you know the ip and port on which eFlow is running, you can get details using this API
+            </summary>
+            <param name="ip">IP address of the eFlow machine</param>
+            <param name="port">Http Port of the instance</param>
+            <param name="wildcard_topic_patterns">Comma delimited list of topic patterns, ">" for all</param>
+            <returns>eFlowAddress of the instance</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.FindEFlowByIp(System.String,System.String,System.Int32)">
+            <summary>
+            If you know the ip and port on which eFlow is running, you can get details using this API
+            </summary>
+            <param name="ip">IP address of the eFlow machine</param>
+            <param name="port">Http Port of the instance</param>
+            <returns>eFlowAddress of the instance</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.Register(System.String,System.String,com.efi.eflow.netclient.data.eFlowAddress)">
+            <summary>
+            Register the client with eFlow. Client must be registered with eFlow before sending or
+            receiving any message from eFlow
+            </summary>
+            <param name="name">Name of the client</param>
+            <param name="clientid">Unique ID of the client</param>
+            <param name="address">address eFlow instance</param>
+            <returns>AuthKey that should be saved and used for sending or receiving messages</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.GetSelectedAddress">
+            <summary>
+            Returns selected eflow address
+            </summary>
+            <returns>selected eFlow address</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.SendMessage(com.efi.eflow.netclient.data.eFlowMessage,System.String)">
+            <summary>
+            A message producer method to send the message contained in eFlowMessage object
+            to the topic specified. 
+            </summary>
+            <param name="message">eFlowMessage instance containing eFlowAddress, message body, destination topic etc.
+            Please refer to <see cref="T:com.efi.eflow.netclient.data.eFlowMessage"/> for details</param>
+            <param name="authkey">Authorization key that is returned after registering the client. Refer to register method</param>
+            <returns>Status of method call</returns>
+            <exception cref="T:com.efi.eflow.netclient.exception.eFlowException">Thrown when unable to send message. 
+            Refer to message for cause of the exception</exception>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.SendMessage(com.efi.eflow.netclient.data.eFlowMessage,System.String,System.String)">
+            <summary>
+            A message producer method to send the message contained in eFlowMessage object
+            to the topic specified. 
+            </summary>
+            <param name="message">eFlowMessage instance containing message body, destination topic etc.
+            Please refer to eFlowMessage for details</param>
+            <param name="eflowname">Name of the eflow instance to which message should be sent. 
+            This method will discover the eFlow with the given name and send the message</param>
+            <param name="authkey">Authorization key that is returned after registering the client. Refer to register method</param>
+            <returns>Status of method call</returns>
+            <exception cref="T:com.efi.eflow.netclient.exception.eFlowException">Thrown when unable to send message. 
+            Refer to message for cause of the exception</exception>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.SendNotification(com.efi.eflow.netclient.data.eFlowAddress,System.String,System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Send a Notification to the specified eFlow <paramref name="address"/>
+            </summary>
+            <param name="address">The eFlow address to connect to.</param>
+            <param name="sender">Sender ID, Can be login ID when notification is generated by any user</param>
+            <param name="message">actual message to be delivered</param>
+            <param name="priority">1 = High, 2 = Medium, 3 = low</param>
+            <param name="authkey">The Client Auth Key to authenticate with.</param>
+            <param name="entity">Entity if any. Can be null</param>
+            <param name="code">Notification/error code. can be null</param>
+            <returns></returns>
+        </member>
+        <member name="F:com.efi.eflow.netclient.api.eFlowClient.receiverList">
+            <summary>
+            Stores the list of all receivers created with this <see cref="T:com.efi.eflow.netclient.api.eFlowClient"/> instance.
+            </summary>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.SubscribeFor(com.efi.eflow.netclient.data.eFlowAddress,System.String,System.String,System.String,com.efi.eflow.netclient.api.eFlowMessageConsumer)">
+            <summary>
+            Creates a durable subscription to the specified <see cref="!:address"/>/<see cref="!:topic"/>.
+            </summary>
+            <param name="address">The eFlow address to connect to.</param>
+            <param name="topic">The topic to subscribe to, in the following format: "FACILITY_ID.BUSINESS_FUNCTION.MESSAGE_NAME.VERSION". Accepts '*' and '>' as wildcard characters (e.g. "FACILITY_ID.*.*.*")</param>
+            <param name="clientid">The Client ID to identify as.</param>
+            <param name="authkey">The Client Auth Key to authenticate with.</param>
+            <param name="callback">Class instance implementing the <see cref="T:com.efi.eflow.netclient.api.eFlowMessageConsumer"/> interface. When a message is available, <see cref="M:com.efi.eflow.netclient.api.eFlowMessageConsumer.onMessage(com.efi.eflow.netclient.data.eFlowMessage)"/> will be called.</param>
+            <returns><see cref="F:com.efi.eflow.netclient.api.eFlowClient.SUCCESS"/> if the action was successful; otherwise, throws an exception.</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.SubscribeFor(com.efi.eflow.netclient.data.eFlowAddress,System.String,System.String,System.String,com.efi.eflow.netclient.api.eFlowMessageConsumer,System.Int32)">
+            <summary>
+            Creates a durable subscription to the specified <see cref="!:address"/>/<see cref="!:topic"/>.
+            </summary>
+            <param name="address">The eFlow address to connect to.</param>
+            <param name="topic">The topic to subscribe to, in the following format: "FACILITY_ID.BUSINESS_FUNCTION.MESSAGE_NAME.VERSION". Accepts '*' and '>' as wildcard characters (e.g. "FACILITY_ID.*.*.*")</param>
+            <param name="clientid">The Client ID to identify as.</param>
+            <param name="authkey">The Client Auth Key to authenticate with.</param>
+            <param name="callback">Class instance implementing the <see cref="T:com.efi.eflow.netclient.api.eFlowMessageConsumer"/> interface. When a message is available, <see cref="M:com.efi.eflow.netclient.api.eFlowMessageConsumer.onMessage(com.efi.eflow.netclient.data.eFlowMessage)"/> will be called.</param>
+            <param name="retrycount">The maximum number of retry attempts before escalating the error. A value of 0 will retry the message indefinitely until the receiver is shutdown or the parent thread is terminated.</param>
+            <returns><see cref="F:com.efi.eflow.netclient.api.eFlowClient.SUCCESS"/> if the action was successful; otherwise, throws an exception.</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.SubscribeFor(com.efi.eflow.netclient.data.eFlowAddress,System.String,System.String,System.String,com.efi.eflow.netclient.api.eFlowMessageConsumer,System.Int32,System.String)">
+            <summary>
+            Creates a durable subscription to the specified <see cref="!:address"/>/<see cref="!:topic"/>.
+            </summary>
+            <param name="address">The eFlow address to connect to.</param>
+            <param name="topic">The topic to subscribe to, in the following format: "FACILITY_ID.BUSINESS_FUNCTION.MESSAGE_NAME.VERSION". Accepts '*' and '>' as wildcard characters (e.g. "FACILITY_ID.*.*.*")</param>
+            <param name="clientid">The Client ID to identify as.</param>
+            <param name="authkey">The Client Auth Key to authenticate with.</param>
+            <param name="callback">Class instance implementing the <see cref="T:com.efi.eflow.netclient.api.eFlowMessageConsumer"/> interface. When a message is available, <see cref="M:com.efi.eflow.netclient.api.eFlowMessageConsumer.onMessage(com.efi.eflow.netclient.data.eFlowMessage)"/> will be called.</param>
+            <param name="retrycount">The maximum number of retry attempts before escalating the error. A value of 0 will retry the message indefinitely until the receiver is shutdown or the parent thread is terminated.</param>
+            <param name="selector">A filter expression to use when receiving the messages. (Optional)</param>
+            <returns><see cref="F:com.efi.eflow.netclient.api.eFlowClient.SUCCESS"/> if the action was successful; otherwise, throws an exception.</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.Subscribe(com.efi.eflow.netclient.data.eFlowAddress,System.String,System.String,System.String,com.efi.eflow.netclient.api.eFlowMessageConsumer)">
+            <summary>
+            Creates a non-durable subscription to the specified <see cref="!:address"/>/<see cref="!:topic"/>.
+            </summary>
+            <param name="address">The eFlow address to connect to.</param>
+            <param name="topic">The topic to subscribe to, in the following format: "FACILITY_ID.BUSINESS_FUNCTION.MESSAGE_NAME.VERSION". Accepts '*' and '>' as wildcard characters (e.g. "FACILITY_ID.*.*.*")</param>
+            <param name="clientid">The Client ID to identify as.</param>
+            <param name="authkey">The Client Auth Key to authenticate with.</param>
+            <param name="callback">Class instance implementing the <see cref="T:com.efi.eflow.netclient.api.eFlowMessageConsumer"/> interface. When a message is available, <see cref="M:com.efi.eflow.netclient.api.eFlowMessageConsumer.onMessage(com.efi.eflow.netclient.data.eFlowMessage)"/> will be called.</param>
+            <returns><see cref="F:com.efi.eflow.netclient.api.eFlowClient.SUCCESS"/> if the action was successful; otherwise, throws an exception.</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.Subscribe(com.efi.eflow.netclient.data.eFlowAddress,System.String,System.String,System.String,com.efi.eflow.netclient.api.eFlowMessageConsumer,System.Int32)">
+            <summary>
+            Creates a non-durable subscription to the specified <see cref="!:address"/>/<see cref="!:topic"/>.
+            </summary>
+            <param name="address">The eFlow address to connect to.</param>
+            <param name="topic">The topic to subscribe to, in the following format: "FACILITY_ID.BUSINESS_FUNCTION.MESSAGE_NAME.VERSION". Accepts '*' and '>' as wildcard characters (e.g. "FACILITY_ID.*.*.*")</param>
+            <param name="clientid">The Client ID to identify as.</param>
+            <param name="authkey">The Client Auth Key to authenticate with.</param>
+            <param name="callback">Class instance implementing the <see cref="T:com.efi.eflow.netclient.api.eFlowMessageConsumer"/> interface. When a message is available, <see cref="M:com.efi.eflow.netclient.api.eFlowMessageConsumer.onMessage(com.efi.eflow.netclient.data.eFlowMessage)"/> will be called.</param>
+            <param name="retrycount">The maximum number of retry attempts before escalating the error. A value of 0 will retry the message indefinitely until the receiver is shutdown or the parent thread is terminated.</param>
+            <returns><see cref="F:com.efi.eflow.netclient.api.eFlowClient.SUCCESS"/> if the action was successful; otherwise, throws an exception.</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.Subscribe(com.efi.eflow.netclient.data.eFlowAddress,System.String,System.String,System.String,com.efi.eflow.netclient.api.eFlowMessageConsumer,System.Int32,System.String)">
+            <summary>
+            Creates a non-durable subscription to the specified <see cref="!:address"/>/<see cref="!:topic"/>.
+            </summary>
+            <param name="address">The eFlow address to connect to.</param>
+            <param name="topic">The topic to subscribe to, in the following format: "FACILITY_ID.BUSINESS_FUNCTION.MESSAGE_NAME.VERSION". Accepts '*' and '>' as wildcard characters (e.g. "FACILITY_ID.*.*.*")</param>
+            <param name="clientid">The Client ID to identify as.</param>
+            <param name="authkey">The Client Auth Key to authenticate with.</param>
+            <param name="callback">Class instance implementing the <see cref="T:com.efi.eflow.netclient.api.eFlowMessageConsumer"/> interface. When a message is available, <see cref="M:com.efi.eflow.netclient.api.eFlowMessageConsumer.onMessage(com.efi.eflow.netclient.data.eFlowMessage)"/> will be called.</param>
+            <param name="retrycount">The maximum number of retry attempts before escalating the error. A value of 0 will retry the message indefinitely until the receiver is shutdown or the parent thread is terminated.</param>
+            <param name="selector">A filter expression to use when receiving the messages. (Optional)</param>
+            <returns><see cref="F:com.efi.eflow.netclient.api.eFlowClient.SUCCESS"/> if the action was successful; otherwise, throws an exception.</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.CreateAndStartReceiver(com.efi.eflow.netclient.data.eFlowAddress,System.String,System.String,System.String,com.efi.eflow.netclient.api.eFlowMessageConsumer,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:com.efi.eflow.netclient.api.MessageReceiver"/> and starts listening for messages.
+            </summary>
+            <param name="address">The eFlow address to connect to.</param>
+            <param name="topic">The topic to subscribe to, in the following format: "FACILITY_ID.BUSINESS_FUNCTION.MESSAGE_NAME.VERSION". Accepts '*' and '>' as wildcard characters (e.g. "FACILITY_ID.*.*.*")</param>
+            <param name="clientId">The Client ID to identify as.</param>
+            <param name="clientAuthKey">The Client Auth Key to authenticate with.</param>
+            <param name="consumer">Class instance implementing the <see cref="T:com.efi.eflow.netclient.api.eFlowMessageConsumer"/> interface. When a message is available, <see cref="M:com.efi.eflow.netclient.api.eFlowMessageConsumer.onMessage(com.efi.eflow.netclient.data.eFlowMessage)"/> will be called.</param>
+            <param name="retrycount">The maximum number of retry attempts before escalating the error. A value of 0 will retry the message indefinitely until the receiver is shutdown or the parent thread is terminated.</param>
+            <param name="selector">A filter expression to use when receiving the messages. (Optional)</param>
+            <param name="durable">Is this subscription durable? Should the eFlow instance persist undelivered messages?</param>
+            <returns><see cref="F:com.efi.eflow.netclient.api.eFlowClient.SUCCESS"/> if the action was successful; otherwise, throws an exception.</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.ShutdownSubscriber">
+            <summary>
+            Gracefully shuts down and unsubscribes all receivers (plural, despite the method name) created with this <see cref="T:com.efi.eflow.netclient.api.eFlowClient"/> instance. (Same as calling <see cref="M:com.efi.eflow.netclient.api.eFlowClient.UnsubscribeAll"/>)
+            </summary>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.TesteFlow(System.String,System.Int32)">
+            <summary>
+            You can test the health of eFlow using this API
+            </summary>
+            <param name="ip">IP address of the eFlow machine</param>
+            /// <param name="port">Http Port of the instance</param>
+            <returns>array of messages that can be used to debug the status</returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.ValidateSSOToken(System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Validates the SSO token and returns user identity like, login id, complany, plant and roles in JSON format
+            </summary>
+            <param name="host">eFlow host</param>
+            <param name="port">eFlow port</param>
+            <param name="token">SSO token</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.GetSSOToken(com.efi.eflow.netclient.data.eFlowAddress,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Will get the SSO token from eFlow that can be used to pass to other integrating applications
+            </summary>
+            <param name="address">Address of the eFlow</param>
+            <param name="authkey">Authenetication key provided to clients</param>
+            <param name="login">Login ID of the user</param>
+            <param name="company">Company that user belongs to</param>
+            <param name="plant">Plant that user is working on</param>
+            <param name="roles">Comma separated roles</param>
+            <param name="param1">User param</param>
+            <param name="param2">User param</param>
+            <param name="param3">User param</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.GetSSOToken(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Will get the SSO token from eFlow that can be used to pass to other integrating applications
+            </summary>
+            <param name="host">eFlow host</param>
+            <param name="port">eFlow port</param>
+            <param name="authkey">Authenetication key provided to clients</param>
+            <param name="login">Login ID of the user</param>
+            <param name="company">Company that user belongs to</param>
+            <param name="plant">Plant that user is working on</param>
+            <param name="roles">Comma separated roles</param>
+            <param name="param1">User param</param>
+            <param name="param2">User param</param>
+            <param name="param3">User param</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.GetWorkbenchURL(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Returns the Workbench URL
+            </summary>
+            <param name="baseUrl">Base URL of the eFlow workbench</param>
+            <param name="component">Component requesting the URL, Monarch, Radius etc</param>
+            <param name="loginid">Login ID of the user</param>
+            <param name="username">User name</param>
+            <param name="companyid">Company ID</param>
+            <param name="plantId">Plant ID</param>
+            <param name="roles">comma separated roles</param>
+            <param name="view">Default view to be used. Default should be workbench</param>
+            <param name="lang">Language in which page should be served. Please use 2 character code like en, de etc</param>
+            <param name="df">Date format</param>
+            <param name="nf">Number format</param>
+            <param name="emailAddress">Email address of the user</param>
+            <param name="Hostip">Host IP - Only for Radius integration.</param>
+            <param name="port">port - Only for Radius integration</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.UnsubscribeAll">
+            <summary>
+            Gracefully shuts down and unsubscribes all receivers created with this <see cref="T:com.efi.eflow.netclient.api.eFlowClient"/> instance. (Same as calling <see cref="M:com.efi.eflow.netclient.api.eFlowClient.ShutdownSubscriber"/>)
+            </summary>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.Unsubscribe(System.String)">
+            <summary>
+            Gracefully shuts down and unsubscribes all receivers for the specified <paramref name="clientId"/>
+            </summary>
+            <param name="clientId">The client ID to match receivers against.</param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.Unsubscribe(System.String,System.String)">
+            <summary>
+            Gracefully shuts down and unsubscribes all receivers for the specified <paramref name="clientId"/>, for the specified <paramref name="topic"/>
+            </summary>
+            <param name="clientId">The client ID to match receivers against.</param>
+            <param name="topic">The topic to match receivers against.</param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.api.eFlowClient.Unsubscribe(System.Collections.Generic.List{com.efi.eflow.netclient.api.MessageReceiver})">
+            <summary>
+            Gracefully shuts down and unsubscribes the specified <paramref name="receivers"/>
+            </summary>
+            <param name="receivers">The list of receivers to shutdown and unsubscribe.</param>
+        </member>
+        <member name="T:com.efi.eflow.netclient.data.Subscription">
+            <summary>
+            Class holding Subscription information of eFlow instance
+            </summary>
+            
+        </member>
+        <member name="T:com.efi.eflow.netclient.data.eFlowAddress">
+            <summary>
+            This class holds address of a specific eFlow instance
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowAddress.Id">
+            <summary>
+            Unique ID of eFlow
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowAddress.Name">
+            <summary>
+            Friendly name of eFlow
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowAddress.HttpUrl">
+            <summary>
+            Http URL to access the eFlow app / register with eFlow
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowAddress.Topics">
+            <summary>
+            List of allowed topics on this eFlow instance
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowAddress.ServiceRegisterUrl">
+            <summary>
+            URL to register service provider
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowAddress.ServiceCallUrl">
+            <summary>
+            URL to call service provider
+            </summary>
+        </member>
+        <member name="T:com.efi.eflow.netclient.data.eFlowMessage">
+            <summary>
+            Class to be used for sending and receiving messages
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.isError">
+            <summary>
+            Indicates whether message contains any error
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.errorMsg">
+            <summary>
+            Contains actual error message
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.BODID">
+            <summary>
+            BODID to identify the message realiably
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.Durable">
+            <summary>
+            Set to true if message delivery should be persistent
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.Expiry">
+            <summery>
+            Sets the expiration value of the mesage.
+            Null indicates no expiry
+            </summery>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.ClientID">
+            <summary>
+            Unique ID that each client should be using
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.CorrelationId">
+            <summary>
+            correlation ID for a message.
+            A new ID should be supplied for a new message. For any reply messages, correlation id of original message should be used.
+            This will help us to corelate the messages to generate meaningful reports.
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.Address">
+            <summary>
+            eFlowAddress holding the address of an eFlow instance
+            This should be non null value for producing the message.
+            When you receive the message, this value will be null
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.Payload">
+            <summary>
+            Actual payload that should be delivered / received
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.Sender">
+            <summary>
+            Friendly name of message sender.
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.Destination">
+            <summary>
+            Destination topic to which message should be delivered.
+            This is a 4 word name separated by . (dot)
+            e.g. BLR_100.SCHEDULING.JOB_UPDATE.3
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.data.eFlowMessage.Properties">
+            <summary>
+            Properties to be set on the Message
+            </summary>
+        </member>
+        <member name="T:com.efi.eflow.netclient.data.Topic">
+            <summary>
+            Class holding Topic information of eFlow instance
+            </summary>
+            
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.getTopicId">
+            <summary>
+            Get Unique ID of the topic
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.setTopicId(System.String)">
+            <summary>
+            Set unique ID of the topic
+            </summary>
+            <param name="topicId"></param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.getTopicName">
+            <summary>
+            Get Topic Name. This is typically the facility ID of eFlow installation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.setTopicName(System.String)">
+            <summary>
+            Set Topic Name
+            </summary>
+            <param name="topicName"></param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.getBizFunction">
+            <summary>
+            Business function associated with this topic. e.g. SCHEDULING, DMI etc
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.setBizFunction(System.String)">
+            <summary>
+            Set Business function
+            </summary>
+            <param name="bizFunction"></param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.getMessage">
+            <summary>
+            Get Message. Message of the business function. e.g JOB_UPDATE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.setMessage(System.String)">
+            <summary>
+            Set message name
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.getVersion">
+            <summary>
+            Get version of the Message
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.setVersion(System.Int32)">
+            <summary>
+            Set version of the message
+            </summary>
+            <param name="version"></param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.stringify">
+            <summary>
+            Serialize the topic in custom string format
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.physicalName">
+            <summary>
+            Serialize the topic in normal String format
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.#ctor(System.String)">
+            <summary>
+            Takes serialized topic as string and constructs topic object
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.data.Topic.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:com.efi.eflow.netclient.exception.eFlowException">
+            <summary>
+            eFlowException is thrown for any errors while interacting with eFlow.
+            Products should catch this exception and take appropriate measures
+            </summary>
+        </member>
+        <member name="M:com.efi.eflow.netclient.exception.eFlowException.#ctor(System.Int32)">
+            <summary>
+            Creates new instance of exception with given code
+            </summary>
+            <param name="code"></param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.exception.eFlowException.#ctor(System.Int32,System.String)">
+            <summary>
+            Creates new instance of exception with given code and message
+            </summary>
+            <param name="code"></param>
+            <param name="message"></param>
+        </member>
+        <member name="P:com.efi.eflow.netclient.exception.eFlowException.ClientVersion">
+            <summary>
+            The build version of the eFlowClient library that threw this exception. (Note: NOT the version of eFlow you are connected to or are trying to connect to)
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.exception.eFlowException.ErrorCode">
+            <summary>
+            Returns Error code
+            </summary>
+        </member>
+        <member name="M:com.efi.eflow.netclient.exception.eFlowException.WriteWinOSAppLog(System.String,System.Int32,System.Int16)">
+            <summary>
+            Write a message to the Windows Application Log for debugging. Used by EnableLogging, but exposed since of general use.
+            </summary>
+            <param name="msg">Simple text string to write to windows app log</param>
+            <param name="eventid">Optional event identifier, defaults to 101</param>
+            <param name="category">Optional event category, defatuls to 1</param>
+        </member>
+        <member name="M:com.efi.eflow.netclient.exception.eFlowException.enableWinOSAppLogging">
+            <summary>
+            Enables capture of all Exceptions raised, and logs them to the Windows Application Log.
+            This is for debugging, and no disable is provided.
+            </summary>
+        </member>
+        <member name="P:com.efi.eflow.netclient.exception.eFlowException.ErrorMessage">
+            <summary>
+            Returns error message
+            </summary>
+        </member>
+        <member name="T:com.efi.eflow.netclient.licensing.util.LicensingConstants">
+            <summary>
+            A variety of constants, used internally throughout the Licensing SDK Client.
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.SUCCESS_CODE">
+            <summary>
+            HTTP response success code
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.ENCR_ITERATIONS">
+            <summary>
+            Number of encryption iterations to perform (???)
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.LICENSE_REFRESH_DURATION">
+            <summary>
+            Duration (in minutes) to refresh a license.
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.MAX_HEARTBEAT_RETRY">
+            <summary>
+            Maximum retry attept before delcaring connection failure
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.MAX_VERIFY_RETRY">
+            <summary>
+            Maximum retry attept before delcaring connection failure
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.HEART_BEAT_NOTIFICATION_DURATION">
+            <summary>
+            Duration (in Min) to send heart beat notification
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.GET_KEY_END_POINT">
+            <summary>
+            REST end point for getting decryption key
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.GET_COMPANIES_END_POINT">
+            <summary>
+            REST end point for getting encrypted license for all companies
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.GET_LICENSE_END_POINT">
+            <summary>
+            REST end point for getting encrypted license content
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.CONSUME_LICENSE_END_POINT">
+            <summary>
+            REST end point for consuming floating license
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.RELEASE_LICENSE_END_POINT">
+            <summary>
+            REST end point for releasing floating license
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.LICENSE_INFO_END_POINT">
+            <summary>
+            REST end point for getting license info
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.RECORD_BEAT_END_POINT">
+            <summary>
+            REST end point for recoding heart beat of a floating license
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.KEY_PASSWORD_END_POINT">
+            <summary>
+            REST end point for recoding heart beat of a floating license
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.VERSION_NO_END_POINT">
+            <summary>
+            REST end point for recoding heart beat of a floating license
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.EFLOW_REST_SERVICE_KEY">
+            <summary>
+            Key for eFlow REST service URL
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.WINDOW_PROPERTY_PATH">
+            <summary>
+            Properties File path in Windows
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.LINUX_PROPERTY_PATH">
+            <summary>
+            Properties File path in Linux
+            </summary>
+        </member>
+        <member name="F:com.efi.eflow.netclient.licensing.util.LicensingConstants.MAC_PROPERTY_PATH">
+            <summary>
+            Properties File path in Mac
+            </summary>
+        </member>
+        <member name="T:licensingDetail">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetail.efiCustomer">
+            <remarks/>
+        </member>
+        <member name="T:licensingDetailEfiCustomer">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomer.licenseInfo">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomer.efiProduct">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomer.id">
+            <remarks/>
+        </member>
+        <member name="T:licenseInfoType">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.allowedUsers">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.constraints">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.licenseType">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.licenseStatus">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.licenseStatusSpecified">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.startDate">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.startDateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.endDate">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.endDateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.maxUsers">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.restricted">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoType.restrictedSpecified">
+            <remarks/>
+        </member>
+        <member name="T:licenseInfoTypeUser">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoTypeUser.id">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoTypeUser.Value">
+            <remarks/>
+        </member>
+        <member name="T:licenseInfoTypeConstraint">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoTypeConstraint.constraintId">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoTypeConstraint.constraintValue">
+            <remarks/>
+        </member>
+        <member name="P:licenseInfoTypeConstraint.Value">
+            <remarks/>
+        </member>
+        <member name="T:licenceCategory">
+            <remarks/>
+        </member>
+        <member name="F:licenceCategory.definite">
+            <remarks/>
+        </member>
+        <member name="F:licenceCategory.indefinite">
+            <remarks/>
+        </member>
+        <member name="F:licenceCategory.trial">
+            <remarks/>
+        </member>
+        <member name="F:licenceCategory.enterprise">
+            <remarks/>
+        </member>
+        <member name="T:licenceStatusType">
+            <remarks/>
+        </member>
+        <member name="F:licenceStatusType.A">
+            <remarks/>
+        </member>
+        <member name="F:licenceStatusType.I">
+            <remarks/>
+        </member>
+        <member name="F:licenceStatusType.S">
+            <remarks/>
+        </member>
+        <member name="T:licensingDetailEfiCustomerEfiProduct">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProduct.licenceKey">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProduct.licenseInfo">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProduct.licensableFeatures">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProduct.customersCustomerLisensables">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProduct.id">
+            <remarks/>
+        </member>
+        <member name="T:licensingDetailEfiCustomerEfiProductLicenceKey">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProductLicenceKey.key">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProductLicenceKey.Value">
+            <remarks/>
+        </member>
+        <member name="T:licensableFeaturesTypeLicensableFeature">
+            <remarks/>
+        </member>
+        <member name="P:licensableFeaturesTypeLicensableFeature.licenseInfo">
+            <remarks/>
+        </member>
+        <member name="P:licensableFeaturesTypeLicensableFeature.id">
+            <remarks/>
+        </member>
+        <member name="T:licensingDetailEfiCustomerEfiProductCustomersCustomer">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProductCustomersCustomer.licenseInfo">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProductCustomersCustomer.licensableFeatures">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProductCustomersCustomer.id">
+            <remarks/>
+        </member>
+        <member name="P:licensingDetailEfiCustomerEfiProductCustomersCustomer.plantId">
+            <remarks/>
+        </member>
+        <member name="T:RSASecurity.SecurityManager">
+            <summary>
+            Summary description for SecuirtyManager.
+            </summary>
+        </member>
+        <member name="M:RSASecurity.SecurityManager.#ctor">
+            <summary>
+            Reads the Public key file and Loads the RSAParameters with the 
+            Modulous and Exponent data.
+            </summary>
+        </member>
+        <member name="M:RSASecurity.SecurityManager.readKey">
+            <summary>
+            Reads the key from the XML formatted file.
+            </summary>
+        </member>
+        <member name="M:RSASecurity.SecurityManager.verifySignature(System.String,System.String)">
+            <summary>
+            Verifies the signature for a given data.
+            </summary>
+            <param name="signature">Signature data in Base64</param>
+            <param name="signedData">Original data in BASE64</param>
+            <returns>True if signature is valid else False</returns>
+        </member>
+        <member name="M:RSASecurity.SecurityManager.verifySignature(System.Byte[],System.String)">
+            <summary>
+            Verifies the signature for a given data.
+            </summary>
+            <param name="signature">The signature </param>
+            <param name="signedData">Original data in Base64</param>
+            <returns></returns>
+        </member>
+        <member name="M:RSASecurity.SecurityManager.decryptData(System.String)">
+            <summary>
+            Decrypts the data. from Base64 string
+            </summary>
+            <param name="encrypted">Base64EncodedData</param>
+            <returns>Data</returns>
+        </member>
+    </members>
+</doc>

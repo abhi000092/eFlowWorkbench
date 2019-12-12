@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="com.workbench.client.tests.wb03_WidgetsTest">
+        <methods>
+          <include name="deleteColumnDateTest"/>
+          <include name="initClass"/>
+          <include name="verifyRFQDefaultColumnsWidgetTest"/>
+          <include name="deleteColumnStringTest"/>
+          <include name="addColumnStringTest"/>
+          <include name="addRFQWidgetTest"/>
+          <include name="addRuleString"/>
+          <include name="advanceRule"/>
+          <include name="deleteColumnNumTest"/>
+          <include name="addRuleNum"/>
+          <include name="addRuleDate"/>
+        </methods>
+      </class> <!-- com.workbench.client.tests.wb03_WidgetsTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

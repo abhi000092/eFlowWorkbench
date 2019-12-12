@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [WORKBENCH Automation TEST SUITE]">
+  <listeners>
+    <listener class-name="com.workbench.client.core.RetryAnalyzer"/>
+  </listeners>
+  <test thread-count="5" name="WorkBench Regression on ProgressDataBase (failed)">
+    <parameter name="database" value=""/>
+    <parameter name="loginid" value="wbac"/>
+    <parameter name="environmentName" value="PreProduction"/>
+    <parameter name="browserVersion" value="77.0.3865.40"/>
+    <parameter name="browserName" value="Chrome"/>
+    <parameter name="reTryFlag" value="false"/>
+    <parameter name="performanceFlag" value="false"/>
+    <groups>
+      <run>
+        <include name="regression_test"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.workbench.client.tests.wb03_WidgetsTest">
+        <methods>
+          <include name="initClass"/>
+          <include name="modifyRuleString"/>
+          <include name="advanceRule"/>
+        </methods>
+      </class> <!-- com.workbench.client.tests.wb03_WidgetsTest -->
+    </classes>
+  </test> <!-- WorkBench Regression on ProgressDataBase (failed) -->
+</suite> <!-- Failed suite [WORKBENCH Automation TEST SUITE] -->

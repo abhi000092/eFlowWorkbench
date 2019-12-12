@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="2" ignored="17" total="34" passed="15">
+  <reporter-output>
+  </reporter-output>
+  <suite name="WORKBENCH Automation TEST SUITE" duration-ms="1017999" started-at="2019-11-23T17:41:32Z" finished-at="2019-11-23T17:58:30Z">
+    <groups>
+      <group name="regression_test">
+        <method signature="wb02_LoginTests.loginwithvalidCredentialsTest(java.lang.String)[pri:104, instance:com.workbench.client.tests.wb02_LoginTests@5a2ce458]" name="loginwithvalidCredentialsTest" class="com.workbench.client.tests.wb02_LoginTests"/>
+        <method signature="wb03_WidgetsTest.addColumnDateTest()[pri:305, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addColumnDateTest" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.addColumnNumTest()[pri:307, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addColumnNumTest" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.addColumnStringTest()[pri:303, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addColumnStringTest" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.addRFQWidgetTest()[pri:301, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addRFQWidgetTest" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.addRuleDate()[pri:310, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addRuleDate" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.addRuleNum()[pri:311, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addRuleNum" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.addRuleString()[pri:309, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addRuleString" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.advanceRule()[pri:315, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="advanceRule" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.deleteColumnDateTest()[pri:306, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="deleteColumnDateTest" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.deleteColumnNumTest()[pri:308, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="deleteColumnNumTest" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.deleteColumnStringTest()[pri:304, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="deleteColumnStringTest" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.modifyRuleDate()[pri:313, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="modifyRuleDate" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.modifyRuleNum()[pri:314, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="modifyRuleNum" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.modifyRuleString()[pri:312, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="modifyRuleString" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+        <method signature="wb03_WidgetsTest.verifyRFQDefaultColumnsWidgetTest()[pri:302, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="verifyRFQDefaultColumnsWidgetTest" class="com.workbench.client.tests.wb03_WidgetsTest"/>
+      </group> <!-- regression_test -->
+      <group name="test">
+        <method signature="wb02_LoginTests.loginwithvalidCredentialsTest(java.lang.String)[pri:104, instance:com.workbench.client.tests.wb02_LoginTests@5a2ce458]" name="loginwithvalidCredentialsTest" class="com.workbench.client.tests.wb02_LoginTests"/>
+      </group> <!-- test -->
+      <group name="database_config_test">
+        <method signature="wb01_ConfigurationTests.initDataBase(java.lang.String)[pri:101, instance:com.workbench.client.tests.wb01_ConfigurationTests@7b381066]" name="initDataBase" class="com.workbench.client.tests.wb01_ConfigurationTests"/>
+      </group> <!-- database_config_test -->
+    </groups>
+    <test name="configure  PROGRESS dataBase" duration-ms="38179" started-at="2019-11-23T17:41:32Z" finished-at="2019-11-23T17:42:10Z">
+      <class name="com.workbench.client.tests.wb01_ConfigurationTests">
+        <test-method status="PASS" signature="initClass()[pri:0, instance:com.workbench.client.tests.wb01_ConfigurationTests@7b381066]" name="initClass" is-config="true" duration-ms="41" started-at="2019-11-23T17:41:41Z" finished-at="2019-11-23T17:41:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initClass -->
+        <test-method status="PASS" signature="initDataBase(java.lang.String)[pri:101, instance:com.workbench.client.tests.wb01_ConfigurationTests@7b381066]" name="initDataBase" duration-ms="25307" started-at="2019-11-23T17:41:41Z" finished-at="2019-11-23T17:42:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[progress]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initDataBase -->
+      </class> <!-- com.workbench.client.tests.wb01_ConfigurationTests -->
+      <class name="com.workbench.client.core.DriverFactory">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String)[pri:0, instance:com.workbench.client.core.DriverFactory@65bc50c9]" name="setUp" is-config="true" duration-ms="8257" started-at="2019-11-23T17:41:32Z" finished-at="2019-11-23T17:41:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[PreProduction]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="3">
+              <value is-null="true"/>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[77.0.3865.40]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[progress]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.workbench.client.core.DriverFactory@65bc50c9]" name="tearDown" is-config="true" duration-ms="2831" started-at="2019-11-23T17:42:08Z" finished-at="2019-11-23T17:42:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.workbench.client.core.DriverFactory -->
+    </test> <!-- configure  PROGRESS dataBase -->
+    <test name="WorkBench Regression on ProgressDataBase " duration-ms="979580" started-at="2019-11-23T17:42:11Z" finished-at="2019-11-23T17:58:30Z">
+      <class name="com.workbench.client.core.DriverFactory">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String)[pri:0, instance:com.workbench.client.core.DriverFactory@4e8e0052]" name="setUp" is-config="true" duration-ms="3833" started-at="2019-11-23T17:42:11Z" finished-at="2019-11-23T17:42:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[PreProduction]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[wbac]]>
+              </value>
+            </param>
+            <param index="3">
+              <value is-null="true"/>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[77.0.3865.40]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.workbench.client.core.DriverFactory@4e8e0052]" name="tearDown" is-config="true" duration-ms="2780" started-at="2019-11-23T17:58:28Z" finished-at="2019-11-23T17:58:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.workbench.client.core.DriverFactory -->
+      <class name="com.workbench.client.tests.wb02_LoginTests">
+        <test-method status="PASS" signature="initClass()[pri:0, instance:com.workbench.client.tests.wb02_LoginTests@5a2ce458]" name="initClass" is-config="true" duration-ms="4" started-at="2019-11-23T17:42:15Z" finished-at="2019-11-23T17:42:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initClass -->
+        <test-method status="PASS" signature="loginwithvalidCredentialsTest(java.lang.String)[pri:104, instance:com.workbench.client.tests.wb02_LoginTests@5a2ce458]" name="loginwithvalidCredentialsTest" duration-ms="11238" started-at="2019-11-23T17:42:15Z" data-provider="RegressionCredentials" finished-at="2019-11-23T17:42:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[wbac]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginwithvalidCredentialsTest -->
+      </class> <!-- com.workbench.client.tests.wb02_LoginTests -->
+      <class name="com.workbench.client.tests.wb03_WidgetsTest">
+        <test-method status="PASS" signature="addRFQWidgetTest()[pri:301, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addRFQWidgetTest" duration-ms="25688" started-at="2019-11-23T17:42:46Z" finished-at="2019-11-23T17:43:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addRFQWidgetTest -->
+        <test-method status="PASS" signature="initClass()[pri:0, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="initClass" is-config="true" duration-ms="0" started-at="2019-11-23T17:42:46Z" finished-at="2019-11-23T17:42:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initClass -->
+        <test-method status="PASS" signature="verifyRFQDefaultColumnsWidgetTest()[pri:302, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="verifyRFQDefaultColumnsWidgetTest" duration-ms="14115" started-at="2019-11-23T17:43:13Z" finished-at="2019-11-23T17:43:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRFQDefaultColumnsWidgetTest -->
+        <test-method status="PASS" signature="addColumnStringTest()[pri:303, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addColumnStringTest" duration-ms="19327" started-at="2019-11-23T17:43:27Z" finished-at="2019-11-23T17:43:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addColumnStringTest -->
+        <test-method status="PASS" signature="deleteColumnStringTest()[pri:304, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="deleteColumnStringTest" duration-ms="19131" started-at="2019-11-23T17:43:47Z" finished-at="2019-11-23T17:44:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteColumnStringTest -->
+        <test-method status="PASS" signature="addColumnDateTest()[pri:305, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addColumnDateTest" duration-ms="93545" started-at="2019-11-23T17:44:06Z" finished-at="2019-11-23T17:45:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addColumnDateTest -->
+        <test-method status="PASS" signature="deleteColumnDateTest()[pri:306, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="deleteColumnDateTest" duration-ms="19719" started-at="2019-11-23T17:45:40Z" finished-at="2019-11-23T17:46:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteColumnDateTest -->
+        <test-method status="PASS" signature="addColumnNumTest()[pri:307, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addColumnNumTest" duration-ms="33188" started-at="2019-11-23T17:46:00Z" finished-at="2019-11-23T17:46:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addColumnNumTest -->
+        <test-method status="PASS" signature="deleteColumnNumTest()[pri:308, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="deleteColumnNumTest" duration-ms="19136" started-at="2019-11-23T17:46:34Z" finished-at="2019-11-23T17:46:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteColumnNumTest -->
+        <test-method status="PASS" signature="addRuleString()[pri:309, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addRuleString" duration-ms="78782" started-at="2019-11-23T17:46:54Z" finished-at="2019-11-23T17:48:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addRuleString -->
+        <test-method status="PASS" signature="addRuleDate()[pri:310, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addRuleDate" duration-ms="86258" started-at="2019-11-23T17:48:13Z" finished-at="2019-11-23T17:49:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addRuleDate -->
+        <test-method status="PASS" signature="addRuleNum()[pri:311, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="addRuleNum" duration-ms="84881" started-at="2019-11-23T17:49:39Z" finished-at="2019-11-23T17:51:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addRuleNum -->
+        <test-method status="FAIL" signature="modifyRuleString()[pri:312, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="modifyRuleString" duration-ms="88334" started-at="2019-11-23T17:51:05Z" finished-at="2019-11-23T17:52:33Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Failed to apply rule]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Failed to apply rule
+at org.testng.Assert.fail(Assert.java:96)
+at com.workbench.client.pages.WidgetPage.modifyRuleString(WidgetPage.java:824)
+at com.workbench.client.tests.wb03_WidgetsTest.modifyRuleString(wb03_WidgetsTest.java:134)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- modifyRuleString -->
+        <test-method status="PASS" signature="modifyRuleDate()[pri:313, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="modifyRuleDate" duration-ms="88352" started-at="2019-11-23T17:52:33Z" finished-at="2019-11-23T17:54:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- modifyRuleDate -->
+        <test-method status="PASS" signature="modifyRuleNum()[pri:314, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="modifyRuleNum" duration-ms="211970" started-at="2019-11-23T17:54:02Z" finished-at="2019-11-23T17:57:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- modifyRuleNum -->
+        <test-method status="FAIL" signature="advanceRule()[pri:315, instance:com.workbench.client.tests.wb03_WidgetsTest@1c8e1233]" name="advanceRule" duration-ms="52407" started-at="2019-11-23T17:57:35Z" finished-at="2019-11-23T17:58:27Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[failed to add Advance rule]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: failed to add Advance rule
+at org.testng.Assert.fail(Assert.java:96)
+at com.workbench.client.pages.WidgetPage.applyAdvanceRule(WidgetPage.java:1422)
+at com.workbench.client.tests.wb03_WidgetsTest.advanceRule(wb03_WidgetsTest.java:159)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- advanceRule -->
+      </class> <!-- com.workbench.client.tests.wb03_WidgetsTest -->
+    </test> <!-- WorkBench Regression on ProgressDataBase  -->
+  </suite> <!-- WORKBENCH Automation TEST SUITE -->
+</testng-results>

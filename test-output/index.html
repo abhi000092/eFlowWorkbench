@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE">
+              <span class="suite-name border-failed">WORKBENCH Automation TEST SUITE</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-WORKBENCH_Automation_TEST_SUITE">
+                    <span>E:\workspace\Workbench\src\test\resources\RegressionTest.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-WORKBENCH_Automation_TEST_SUITE">
+                    <span class="test-stats">2 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-WORKBENCH_Automation_TEST_SUITE">
+                    <span>3 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-WORKBENCH_Automation_TEST_SUITE">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-WORKBENCH_Automation_TEST_SUITE">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-WORKBENCH_Automation_TEST_SUITE">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-WORKBENCH_Automation_TEST_SUITE">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">17 methods, 2 failed,   15 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" class="hide-methods failed suite-WORKBENCH_Automation_TEST_SUITE"> (hide)</a> <!-- hide-methods failed suite-WORKBENCH_Automation_TEST_SUITE -->
+                      <a href="#" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" class="show-methods failed suite-WORKBENCH_Automation_TEST_SUITE"> (show)</a> <!-- show-methods failed suite-WORKBENCH_Automation_TEST_SUITE -->
+                    </span>
+                    <div class="method-list-content failed suite-WORKBENCH_Automation_TEST_SUITE">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="advanceRule">advanceRule</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="modifyRuleString">modifyRuleString</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-WORKBENCH_Automation_TEST_SUITE -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" class="hide-methods passed suite-WORKBENCH_Automation_TEST_SUITE"> (hide)</a> <!-- hide-methods passed suite-WORKBENCH_Automation_TEST_SUITE -->
+                      <a href="#" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" class="show-methods passed suite-WORKBENCH_Automation_TEST_SUITE"> (show)</a> <!-- show-methods passed suite-WORKBENCH_Automation_TEST_SUITE -->
+                    </span>
+                    <div class="method-list-content passed suite-WORKBENCH_Automation_TEST_SUITE">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="addColumnDateTest">addColumnDateTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="addColumnNumTest">addColumnNumTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="addColumnStringTest">addColumnStringTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="addRFQWidgetTest">addRFQWidgetTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="addRuleDate">addRuleDate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="addRuleNum">addRuleNum</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="addRuleString">addRuleString</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="deleteColumnDateTest">deleteColumnDateTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="deleteColumnNumTest">deleteColumnNumTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="deleteColumnStringTest">deleteColumnStringTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb01_ConfigurationTests" hash-for-method="initDataBase(progress)">initDataBase(progress)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb02_LoginTests" hash-for-method="loginwithvalidCredentialsTest(wbac)">loginwithvalidCredentialsTest(wbac)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="modifyRuleDate">modifyRuleDate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="modifyRuleNum">modifyRuleNum</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-WORKBENCH_Automation_TEST_SUITE" title="com.workbench.client.tests.wb03_WidgetsTest" hash-for-method="verifyRFQDefaultColumnsWidgetTest">verifyRFQDefaultColumnsWidgetTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-WORKBENCH_Automation_TEST_SUITE -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-WORKBENCH_Automation_TEST_SUITE" class="panel WORKBENCH_Automation_TEST_SUITE">
+          <div class="suite-WORKBENCH_Automation_TEST_SUITE-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.workbench.client.tests.wb03_WidgetsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="advanceRule">
+                  </a> <!-- advanceRule -->
+                  <span class="method-name">advanceRule</span>
+                  <div class="stack-trace">java.lang.AssertionError: failed to add Advance rule
+	at com.workbench.client.pages.WidgetPage.applyAdvanceRule(WidgetPage.java:1422)
+	at com.workbench.client.tests.wb03_WidgetsTest.advanceRule(wb03_WidgetsTest.java:159)
+... Removed 26 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="modifyRuleString">
+                  </a> <!-- modifyRuleString -->
+                  <span class="method-name">modifyRuleString</span>
+                  <div class="stack-trace">java.lang.AssertionError: Failed to apply rule
+	at com.workbench.client.pages.WidgetPage.modifyRuleString(WidgetPage.java:824)
+	at com.workbench.client.tests.wb03_WidgetsTest.modifyRuleString(wb03_WidgetsTest.java:134)
+... Removed 26 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-WORKBENCH_Automation_TEST_SUITE-class-failed -->
+          <div class="suite-WORKBENCH_Automation_TEST_SUITE-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.workbench.client.tests.wb02_LoginTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="loginwithvalidCredentialsTest(wbac)">
+                  </a> <!-- loginwithvalidCredentialsTest(wbac) -->
+                  <span class="method-name">loginwithvalidCredentialsTest</span>
+                  <span class="parameters">(wbac)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-WORKBENCH_Automation_TEST_SUITE-class-passed -->
+          <div class="suite-WORKBENCH_Automation_TEST_SUITE-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.workbench.client.tests.wb01_ConfigurationTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="initDataBase(progress)">
+                  </a> <!-- initDataBase(progress) -->
+                  <span class="method-name">initDataBase</span>
+                  <span class="parameters">(progress)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-WORKBENCH_Automation_TEST_SUITE-class-passed -->
+          <div class="suite-WORKBENCH_Automation_TEST_SUITE-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.workbench.client.tests.wb03_WidgetsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="addColumnDateTest">
+                  </a> <!-- addColumnDateTest -->
+                  <span class="method-name">addColumnDateTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addColumnNumTest">
+                  </a> <!-- addColumnNumTest -->
+                  <span class="method-name">addColumnNumTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addColumnStringTest">
+                  </a> <!-- addColumnStringTest -->
+                  <span class="method-name">addColumnStringTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addRFQWidgetTest">
+                  </a> <!-- addRFQWidgetTest -->
+                  <span class="method-name">addRFQWidgetTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addRuleDate">
+                  </a> <!-- addRuleDate -->
+                  <span class="method-name">addRuleDate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addRuleNum">
+                  </a> <!-- addRuleNum -->
+                  <span class="method-name">addRuleNum</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addRuleString">
+                  </a> <!-- addRuleString -->
+                  <span class="method-name">addRuleString</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteColumnDateTest">
+                  </a> <!-- deleteColumnDateTest -->
+                  <span class="method-name">deleteColumnDateTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteColumnNumTest">
+                  </a> <!-- deleteColumnNumTest -->
+                  <span class="method-name">deleteColumnNumTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteColumnStringTest">
+                  </a> <!-- deleteColumnStringTest -->
+                  <span class="method-name">deleteColumnStringTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="modifyRuleDate">
+                  </a> <!-- modifyRuleDate -->
+                  <span class="method-name">modifyRuleDate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="modifyRuleNum">
+                  </a> <!-- modifyRuleNum -->
+                  <span class="method-name">modifyRuleNum</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyRFQDefaultColumnsWidgetTest">
+                  </a> <!-- verifyRFQDefaultColumnsWidgetTest -->
+                  <span class="method-name">verifyRFQDefaultColumnsWidgetTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-WORKBENCH_Automation_TEST_SUITE-class-passed -->
+        </div> <!-- panel WORKBENCH_Automation_TEST_SUITE -->
+        <div panel-name="test-xml-WORKBENCH_Automation_TEST_SUITE" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">E:\workspace\Workbench\src\test\resources\RegressionTest.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;WORKBENCH Automation TEST SUITE&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.workbench.client.core.RetryAnalyzer&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;configure  PROGRESS dataBase&quot;&gt;
+    &lt;parameter name=&quot;database&quot; value=&quot;progress&quot;/&gt;
+    &lt;parameter name=&quot;loginid&quot; value=&quot;&quot;/&gt;
+    &lt;parameter name=&quot;environmentName&quot; value=&quot;PreProduction&quot;/&gt;
+    &lt;parameter name=&quot;browserVersion&quot; value=&quot;77.0.3865.40&quot;/&gt;
+    &lt;parameter name=&quot;browserName&quot; value=&quot;Chrome&quot;/&gt;
+    &lt;parameter name=&quot;reTryFlag&quot; value=&quot;false&quot;/&gt;
+    &lt;parameter name=&quot;performanceFlag&quot; value=&quot;false&quot;/&gt;
+    &lt;groups&gt;
+      &lt;run&gt;
+        &lt;include name=&quot;database_config_test&quot;/&gt;
+      &lt;/run&gt;
+    &lt;/groups&gt;
+    &lt;packages&gt;
+      &lt;package name=&quot;com.workbench.client.*&quot;/&gt;
+    &lt;/packages&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.workbench.client.AI.PythonParser&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.config.CredentialsProvider&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.config.UserProfile&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.config.WidgetData&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.AvailableColumns&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.CommonUtils$1&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.CommonUtils$2&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.CommonUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.Config$LocatorStrategy&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.Config$ScrollDiection&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.Config$UserDetails&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.Config&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.DefaultColumns&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.DriverFactory&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.DriverManager&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.ExcelUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.FileUtil&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.ListenerUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.Log&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.RandomGeneratorUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.RetryAnalyzer&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.WebUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.pages.DataSourceConfigPage$DatabaeType&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.pages.DataSourceConfigPage&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.pages.LoginPage&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.pages.WidgetPage&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.performance.EventAttribute&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.performance.EventListnerUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.performance.NavigationTiming&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.performance.PerformanceEvent&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.tests.wb01_ConfigurationTests&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.tests.wb02_LoginTests&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.tests.wb03_WidgetsTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- configure  PROGRESS dataBase --&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;WorkBench Regression on ProgressDataBase &quot;&gt;
+    &lt;parameter name=&quot;database&quot; value=&quot;&quot;/&gt;
+    &lt;parameter name=&quot;loginid&quot; value=&quot;wbac&quot;/&gt;
+    &lt;parameter name=&quot;environmentName&quot; value=&quot;PreProduction&quot;/&gt;
+    &lt;parameter name=&quot;browserVersion&quot; value=&quot;77.0.3865.40&quot;/&gt;
+    &lt;parameter name=&quot;browserName&quot; value=&quot;Chrome&quot;/&gt;
+    &lt;parameter name=&quot;reTryFlag&quot; value=&quot;false&quot;/&gt;
+    &lt;parameter name=&quot;performanceFlag&quot; value=&quot;false&quot;/&gt;
+    &lt;groups&gt;
+      &lt;run&gt;
+        &lt;include name=&quot;regression_test&quot;/&gt;
+      &lt;/run&gt;
+    &lt;/groups&gt;
+    &lt;packages&gt;
+      &lt;package name=&quot;com.workbench.client.*&quot;/&gt;
+    &lt;/packages&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.workbench.client.AI.PythonParser&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.config.CredentialsProvider&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.config.UserProfile&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.config.WidgetData&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.AvailableColumns&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.CommonUtils$1&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.CommonUtils$2&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.CommonUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.Config$LocatorStrategy&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.Config$ScrollDiection&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.Config$UserDetails&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.Config&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.DefaultColumns&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.DriverFactory&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.DriverManager&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.ExcelUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.FileUtil&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.ListenerUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.Log&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.RandomGeneratorUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.RetryAnalyzer&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.core.WebUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.pages.DataSourceConfigPage$DatabaeType&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.pages.DataSourceConfigPage&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.pages.LoginPage&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.pages.WidgetPage&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.performance.EventAttribute&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.performance.EventListnerUtils&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.performance.NavigationTiming&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.performance.PerformanceEvent&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.tests.wb01_ConfigurationTests&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.tests.wb02_LoginTests&quot;/&gt;
+      &lt;class name=&quot;com.workbench.client.tests.wb03_WidgetsTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- WorkBench Regression on ProgressDataBase  --&gt;
+&lt;/suite&gt; &lt;!-- WORKBENCH Automation TEST SUITE --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-WORKBENCH_Automation_TEST_SUITE" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for WORKBENCH Automation TEST SUITE</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">configure  PROGRESS dataBase (33 classes)</span>
+              </li>
+              <li>
+                <span class="test-name">WorkBench Regression on ProgressDataBase  (33 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-WORKBENCH_Automation_TEST_SUITE" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for WORKBENCH Automation TEST SUITE</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">database_config_test</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">initDataBase</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">regression_test</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">addColumnDateTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">addColumnNumTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">addColumnStringTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">addRFQWidgetTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">addRuleDate</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">addRuleNum</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">addRuleString</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">advanceRule</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">deleteColumnDateTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">deleteColumnNumTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">deleteColumnStringTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">loginwithvalidCredentialsTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">modifyRuleDate</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">modifyRuleNum</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">modifyRuleString</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyRFQDefaultColumnsWidgetTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">test</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">loginwithvalidCredentialsTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-WORKBENCH_Automation_TEST_SUITE" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for WORKBENCH Automation TEST SUITE</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_WORKBENCH_Automation_TEST_SUITE');
+function tableData_WORKBENCH_Automation_TEST_SUITE() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(17);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'modifyRuleNum')
+data.setCell(0, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(0, 3, 211970);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'addColumnDateTest')
+data.setCell(1, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(1, 3, 93545);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'modifyRuleDate')
+data.setCell(2, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(2, 3, 88352);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'modifyRuleString')
+data.setCell(3, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(3, 3, 88334);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'addRuleDate')
+data.setCell(4, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(4, 3, 86258);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'addRuleNum')
+data.setCell(5, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(5, 3, 84881);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'addRuleString')
+data.setCell(6, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(6, 3, 78782);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'advanceRule')
+data.setCell(7, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(7, 3, 52407);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'addColumnNumTest')
+data.setCell(8, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(8, 3, 33188);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'addRFQWidgetTest')
+data.setCell(9, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(9, 3, 25688);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'initDataBase')
+data.setCell(10, 2, 'com.workbench.client.tests.wb01_ConfigurationTests')
+data.setCell(10, 3, 25307);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'deleteColumnDateTest')
+data.setCell(11, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(11, 3, 19719);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'addColumnStringTest')
+data.setCell(12, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(12, 3, 19327);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'deleteColumnNumTest')
+data.setCell(13, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(13, 3, 19136);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'deleteColumnStringTest')
+data.setCell(14, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(14, 3, 19131);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'verifyRFQDefaultColumnsWidgetTest')
+data.setCell(15, 2, 'com.workbench.client.tests.wb03_WidgetsTest')
+data.setCell(15, 3, 14115);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'loginwithvalidCredentialsTest')
+data.setCell(16, 2, 'com.workbench.client.tests.wb02_LoginTests')
+data.setCell(16, 3, 11238);
+window.suiteTableData['WORKBENCH_Automation_TEST_SUITE']= { tableData: data, tableDiv: 'times-div-WORKBENCH_Automation_TEST_SUITE'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 16 minutes</span>
+              <div id="times-div-WORKBENCH_Automation_TEST_SUITE">
+              </div> <!-- times-div-WORKBENCH_Automation_TEST_SUITE -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-WORKBENCH_Automation_TEST_SUITE" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for WORKBENCH Automation TEST SUITE</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-WORKBENCH_Automation_TEST_SUITE" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">17 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.workbench.client.tests.wb02_LoginTests</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">loginwithvalidCredentialsTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.workbench.client.tests.wb01_ConfigurationTests</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">initDataBase</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.workbench.client.tests.wb03_WidgetsTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">deleteColumnDateTest</span>
+                <br/>
+                <span class="ignored-method-name">verifyRFQDefaultColumnsWidgetTest</span>
+                <br/>
+                <span class="ignored-method-name">modifyRuleString</span>
+                <br/>
+                <span class="ignored-method-name">addRuleString</span>
+                <br/>
+                <span class="ignored-method-name">addRFQWidgetTest</span>
+                <br/>
+                <span class="ignored-method-name">advanceRule</span>
+                <br/>
+                <span class="ignored-method-name">addColumnNumTest</span>
+                <br/>
+                <span class="ignored-method-name">addRuleDate</span>
+                <br/>
+                <span class="ignored-method-name">addColumnDateTest</span>
+                <br/>
+                <span class="ignored-method-name">modifyRuleNum</span>
+                <br/>
+                <span class="ignored-method-name">deleteColumnStringTest</span>
+                <br/>
+                <span class="ignored-method-name">modifyRuleDate</span>
+                <br/>
+                <span class="ignored-method-name">addColumnStringTest</span>
+                <br/>
+                <span class="ignored-method-name">deleteColumnNumTest</span>
+                <br/>
+                <span class="ignored-method-name">addRuleNum</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-WORKBENCH_Automation_TEST_SUITE" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.workbench.client.core.DriverFactory</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUp(Chrome, PreProduction, , null, false, false, 77.0.3865.40, progress)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.workbench.client.tests.wb01_ConfigurationTests</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">initClass</span>
+                <span class="method-start">8277 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">initDataBase(progress)</span>
+                <span class="method-start">8348 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.workbench.client.core.DriverFactory</div> <!-- chronological-class-name -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">35203 ms</span>
+              </div> <!-- configuration-test after -->
+              <div class="configuration-test before">
+                <span class="method-name">setUp(Chrome, PreProduction, wbac, null, false, false, 77.0.3865.40, )</span>
+                <span class="method-start">38278 ms</span>
+              </div> <!-- configuration-test before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.workbench.client.tests.wb02_LoginTests</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">initClass</span>
+                <span class="method-start">42111 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">loginwithvalidCredentialsTest(wbac)</span>
+                <span class="method-start">42123 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.workbench.client.tests.wb03_WidgetsTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">initClass</span>
+                <span class="method-start">73955 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">addRFQWidgetTest</span>
+                <span class="method-start">73955 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyRFQDefaultColumnsWidgetTest</span>
+                <span class="method-start">100083 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addColumnStringTest</span>
+                <span class="method-start">114533 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleteColumnStringTest</span>
+                <span class="method-start">134249 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addColumnDateTest</span>
+                <span class="method-start">153840 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleteColumnDateTest</span>
+                <span class="method-start">247714 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addColumnNumTest</span>
+                <span class="method-start">267886 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleteColumnNumTest</span>
+                <span class="method-start">301553 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addRuleString</span>
+                <span class="method-start">321093 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addRuleDate</span>
+                <span class="method-start">400356 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addRuleNum</span>
+                <span class="method-start">486991 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">modifyRuleString</span>
+                <span class="method-start">572237 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">modifyRuleDate</span>
+                <span class="method-start">660979 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">modifyRuleNum</span>
+                <span class="method-start">749758 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">advanceRule</span>
+                <span class="method-start">962105 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.workbench.client.core.DriverFactory</div> <!-- chronological-class-name -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">1015074 ms</span>
+              </div> <!-- configuration-test after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

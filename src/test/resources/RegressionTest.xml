@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="WORKBENCH Automation TEST SUITE">
+
+	<!-- Regression Priority 
+	0101 - 0199 - LoginTest 
+	0201 - 0299 - HomeTest 
+	0301 - 0399 - CustomerTest 
+	0401 - 0499 - ContactTest 
+	0501 - 0599 - ActivityTest 
+	0601 - 0699 - OppourtunityTest 
+	0701 - 0799 - NoteTest 
+	0801 - 0899 - PublicationTest -->
+
+	<test name="configure  PROGRESS dataBase" verbose="1">
+
+		<parameter name="browserName" value="Chrome" />
+		<parameter name="browserVersion" value="77.0.3865.40" />
+		<parameter name="environmentName" value="PreProduction" />
+		<parameter name="database" value="progress" />
+		<parameter name="performanceFlag" value="false" />
+		<parameter name="reTryFlag" value="false" />
+		<parameter name="loginid" value="" />
+		<groups>
+			<run>
+				<include name="database_config_test" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.workbench.client.*" />
+		</packages>
+
+
+	</test>
+	
+	<test name="WorkBench Regression on ProgressDataBase " verbose="1">
+
+		<parameter name="browserName" value="Chrome" />
+		<parameter name="browserVersion" value="77.0.3865.40" />
+		<parameter name="environmentName" value="PreProduction" />
+		<parameter name="database" value="" />
+		<parameter name="performanceFlag" value="false" />
+		<parameter name="reTryFlag" value="false" />
+		<parameter name="loginid" value="wbac" />
+		<groups>
+			<run>
+				<include name="regression_test" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.workbench.client.*" />
+		</packages>
+
+
+	</test>
+	
+
+	<listeners>
+		<listener class-name="com.workbench.client.core.RetryAnalyzer" />
+	</listeners>
+
+</suite>
+
